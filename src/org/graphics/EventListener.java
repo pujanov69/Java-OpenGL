@@ -19,10 +19,10 @@ public class EventListener implements GLEventListener{
 		
 		gl.glColor3f(0, 0, 1);
 			gl.glBegin(GL2.GL_QUADS);
-			gl.glVertex2f(-0.5f, -0.5f);
-			gl.glVertex2f(0.5f, -0.5f);
-			gl.glVertex2f(0.5f, 0.5f);
-			gl.glVertex2f(-0.5f, 0.5f);
+			gl.glVertex2f(-1, -1);
+			gl.glVertex2f(1, -1);
+			gl.glVertex2f(1, 1);
+			gl.glVertex2f(-1, 1);
 		gl.glEnd();	
 		
 	}
@@ -44,7 +44,10 @@ public class EventListener implements GLEventListener{
 		GL2 gl = drawable.getGL().getGL2();
 		gl.glMatrixMode(GL2.GL_PROJECTION);
 		gl.glLoadIdentity();
-		gl.glOrtho(-320,320, -180, 180, -1, 1);
+		
+		float unitsTall = Renderer.getWindowHeight() / (Renderer.getWindowWidth()/Renderer.unitsWide);
+		
+		gl.glOrtho(- Renderer.unitsWide/2, Renderer.unitsWide/2, -unitsTall/2, unitsTall/2 , -1, 1);
 		gl.glMatrixMode(GL2.GL_MODELVIEW);
 	}
 
