@@ -33,12 +33,19 @@ public class Renderer {
 		window.addGLEventListener(new EventListener());
 		window.addMouseListener(new MouseInput());
 		
-		FPSAnimator animator = new FPSAnimator(window, 60);
-		animator.start();
+//		FPSAnimator animator = new FPSAnimator(window, 60);
+//		animator.start();
 		
 		window.setFullscreen(true);
 		
 		window.setVisible(true);
+	}
+	
+	public static void render() {
+		if(window == null) {
+			return;
+		}
+		window.display();
 	}
 	
 	public static int getWindowWidth() {
@@ -48,11 +55,7 @@ public class Renderer {
 	public static int getWindowHeight() {
 		return window.getHeight();
 	}
-	
-	public static void main(String[] args) {
-		init();
-	}
-	
+		
 	public static GLProfile getProfile() {
 		return profile;
 	}

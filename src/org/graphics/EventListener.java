@@ -16,6 +16,8 @@ public class EventListener implements GLEventListener{
 	public static GL2 gl = null;
 	public static ImageResource image = null;
 	
+	public static float x = -5;
+	
 	@Override
 	public void display(GLAutoDrawable drawable) {
 		gl = drawable.getGL().getGL2();  
@@ -25,8 +27,8 @@ public class EventListener implements GLEventListener{
 //		Graphics.setColor(0, 1, 0, 1);
 //		Graphics.fillRect(0, 0, 1, 1);
 		
-		Graphics.drawImage(image, 0, 0, 1, 1);
-		
+		Graphics.drawImage(image, x, 0, 1, 1);
+		x+=0.01f; 
 	}
 
 	@Override
