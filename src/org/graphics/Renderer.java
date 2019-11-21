@@ -14,6 +14,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 */
 public class Renderer {
 
+	private static GLProfile profile = null;
 	private static GLWindow window = null;
 	
 	public static int screenWidth = 640;
@@ -23,7 +24,7 @@ public class Renderer {
 	
 	public static void init() {
 		GLProfile.initSingleton();
-		GLProfile profile = GLProfile.get(GLProfile.GL2);
+		profile = GLProfile.get(GLProfile.GL2);
 		GLCapabilities caps = new GLCapabilities(profile);
 		
 		window = GLWindow.create(caps);
@@ -50,5 +51,9 @@ public class Renderer {
 	
 	public static void main(String[] args) {
 		init();
+	}
+	
+	public static GLProfile getProfile() {
+		return profile;
 	}
 }

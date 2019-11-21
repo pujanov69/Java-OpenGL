@@ -1,6 +1,6 @@
 package org.graphics;
 
-import java.util.Random;
+import org.resource.ImageResource;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
@@ -14,6 +14,7 @@ import com.jogamp.opengl.GLEventListener;
 public class EventListener implements GLEventListener{
 
 	public static GL2 gl = null;
+	public static ImageResource image = null;
 	
 	@Override
 	public void display(GLAutoDrawable drawable) {
@@ -21,8 +22,10 @@ public class EventListener implements GLEventListener{
 		
 		gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 		
-		Graphics.setColor(0, 1, 0, 1);
-		Graphics.fillRect(0, 0, 1, 1);
+//		Graphics.setColor(0, 1, 0, 1);
+//		Graphics.fillRect(0, 0, 1, 1);
+		
+		Graphics.drawImage(image, 0, 0, 1, 1);
 		
 	}
 
@@ -35,7 +38,10 @@ public class EventListener implements GLEventListener{
 	public void init(GLAutoDrawable drawable) {
 		GL2 gl = drawable.getGL().getGL2();  
 		
-		gl.glClearColor(0, 0, 0, 1);	
+		gl.glClearColor(0, 0, 0, 1);
+		
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		image = new ImageResource("/res/image.jpg");
 	}
 
 	@Override
