@@ -1,5 +1,7 @@
 package org.graphics;
 
+import org.input.MouseInput;
+
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
@@ -26,11 +28,14 @@ public class Renderer {
 		
 		window = GLWindow.create(caps);
 		window.setSize(screenWidth, screenHeight);
-		//window.setRealized(false);
+		window.setRealized(false);
 		window.addGLEventListener(new EventListener());
+		window.addMouseListener(new MouseInput());
 		
 		FPSAnimator animator = new FPSAnimator(window, 60);
 		animator.start();
+		
+		window.setFullscreen(true);
 		
 		window.setVisible(true);
 	}

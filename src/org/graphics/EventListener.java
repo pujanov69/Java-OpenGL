@@ -36,7 +36,7 @@ public class EventListener implements GLEventListener{
 	public void init(GLAutoDrawable drawable) {
 		GL2 gl = drawable.getGL().getGL2();  
 		
-		gl.glClearColor(0, 0, 0, 1);	
+		gl.glClearColor(1, 0, 0, 1);	
 	}
 
 	@Override
