@@ -1,5 +1,7 @@
 package org.graphics;
 
+import java.util.Random;
+
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
@@ -11,19 +13,16 @@ import com.jogamp.opengl.GLEventListener;
 */
 public class EventListener implements GLEventListener{
 
+	public static GL2 gl = null;
+	
 	@Override
 	public void display(GLAutoDrawable drawable) {
-		GL2 gl = drawable.getGL().getGL2();  
+		gl = drawable.getGL().getGL2();  
 		
 		gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 		
-		gl.glColor3f(0, 0, 1);
-			gl.glBegin(GL2.GL_QUADS);
-			gl.glVertex2f(-1, -1);
-			gl.glVertex2f(1, -1);
-			gl.glVertex2f(1, 1);
-			gl.glVertex2f(-1, 1);
-		gl.glEnd();	
+		Graphics.setColor(0, 1, 0, 1);
+		Graphics.fillRect(0, 0, 1, 1);
 		
 	}
 
@@ -36,7 +35,7 @@ public class EventListener implements GLEventListener{
 	public void init(GLAutoDrawable drawable) {
 		GL2 gl = drawable.getGL().getGL2();  
 		
-		gl.glClearColor(1, 0, 0, 1);	
+		gl.glClearColor(0, 0, 0, 1);	
 	}
 
 	@Override
