@@ -22,6 +22,9 @@ public class Renderer {
 	
 	public static float unitsWide = 10;
 	
+	public static float cameraX = 0;
+	public static float cameraY = 0;
+	
 	public static void init() {
 		GLProfile.initSingleton();
 		profile = GLProfile.get(GLProfile.GL2);

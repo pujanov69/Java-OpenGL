@@ -23,8 +23,12 @@ public class EventListener implements GLEventListener{
 		gl = drawable.getGL().getGL2();  
 		
 		gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
+		
+		gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
 
 		World.render();
+		
+		gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
 	}
 
 	@Override

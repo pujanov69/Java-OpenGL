@@ -4,6 +4,7 @@ package org.test;
 import org.engine.GameLoop;
 import org.graphics.Animation;
 import org.input.KeyInput;
+import org.input.MouseInput;
 import org.resource.ImageResource;
 import org.world.GameObject;
 
@@ -30,22 +31,24 @@ public class TestPlayer extends GameObject {
 		float xInput = 0;
 		float yInput = 0;
 		
-		if(KeyInput.getKey(KeyEvent.VK_LEFT)) {
+		if(KeyInput.getKey(KeyEvent.VK_A)) {
 			xInput --;
 		}
 		
-		if(KeyInput.getKey(KeyEvent.VK_RIGHT)) {
+		if(KeyInput.getKey(KeyEvent.VK_D)) {
 			xInput ++;
 		}
-		if(KeyInput.getKey(KeyEvent.VK_UP)) {
+		if(KeyInput.getKey(KeyEvent.VK_W)) {
 			yInput ++;
 		}
-		if(KeyInput.getKey(KeyEvent.VK_DOWN)) {
+		if(KeyInput.getKey(KeyEvent.VK_S)) {
 			yInput --;
 		}
 		
 		x += xInput * runSpeed * GameLoop.updateDelta();
 		y += yInput * runSpeed * GameLoop.updateDelta();
+		
+		rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX()-x, MouseInput.getWorldY()-y));	
 	}
 	
 }
