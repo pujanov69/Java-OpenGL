@@ -16,7 +16,7 @@ public class Animation {
 	private int currentFrame = 0;
 	
 	//The fps
-	public int fps = 8;
+	public int fps = 1;
 	private long lastFrameTime = 0;
 	
 	//should we loop

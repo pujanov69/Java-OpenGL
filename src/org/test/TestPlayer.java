@@ -1,8 +1,13 @@
 package org.test;
 
+
+import org.engine.GameLoop;
 import org.graphics.Animation;
+import org.input.KeyInput;
 import org.resource.ImageResource;
 import org.world.GameObject;
+
+import com.jogamp.newt.event.KeyEvent;
 
 /**
 *@author Pujan
@@ -11,6 +16,8 @@ import org.world.GameObject;
 */
 public class TestPlayer extends GameObject {
 
+	public float runSpeed = 2.0f;
+	
 	public TestPlayer() {
 		animations = new Animation[1];
 		animations[0] = new Animation();
@@ -20,7 +27,25 @@ public class TestPlayer extends GameObject {
 	}
 	
 	public void update() {
-//		x += 0.1f;
+		float xInput = 0;
+		float yInput = 0;
+		
+		if(KeyInput.getKey(KeyEvent.VK_LEFT)) {
+			xInput --;
+		}
+		
+		if(KeyInput.getKey(KeyEvent.VK_RIGHT)) {
+			xInput ++;
+		}
+		if(KeyInput.getKey(KeyEvent.VK_UP)) {
+			yInput ++;
+		}
+		if(KeyInput.getKey(KeyEvent.VK_DOWN)) {
+			yInput --;
+		}
+		
+		x += xInput * runSpeed * GameLoop.updateDelta();
+		y += yInput * runSpeed * GameLoop.updateDelta();
 	}
 	
 }
