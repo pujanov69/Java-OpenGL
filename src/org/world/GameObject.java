@@ -1,5 +1,8 @@
 package org.world;
 
+import org.graphics.Animation;
+import org.graphics.Graphics;
+
 /**
 *@author Pujan
 *
@@ -18,12 +21,19 @@ public class GameObject {
 	//rotation 
 	public float rotation = 0;
 	
+	//animations
+	public Animation[] animations;
+	public int currentAnimation = 0;
+	
 	public void update() {
 		//Implement in subclass
 	}
 	
 	public void render() {
-		//Implement in subclass
+		animations[currentAnimation].play();
+		Graphics.setRotation(rotation);
+		Graphics.drawImage(animations[currentAnimation].getImage(), x, y, width, height);
+		Graphics.setRotation(0);
 	}
 	
 }

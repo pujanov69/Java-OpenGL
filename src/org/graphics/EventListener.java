@@ -39,7 +39,6 @@ public class EventListener implements GLEventListener{
 		gl.glClearColor(0, 0, 0, 1);
 		
 		gl.glEnable(GL2.GL_TEXTURE_2D);
-		image = new ImageResource("/res/image.jpg");
 	}
 
 	@Override
