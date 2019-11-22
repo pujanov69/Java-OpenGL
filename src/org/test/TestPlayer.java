@@ -22,9 +22,9 @@ public class TestPlayer extends GameObject {
 	public TestPlayer() {
 		animations = new Animation[1];
 		animations[0] = new Animation();
-		animations[0].frames = new ImageResource[2];
-		animations[0].frames[0] = new ImageResource("/res/image_1.jpg");
-		animations[0].frames[1] = new ImageResource("/res/image_2.jpg");
+		animations[0].frames = new ImageResource[1];
+		animations[0].frames[0] = new ImageResource("/res/aliengreen.png");
+		//animations[0].frames[1] = new ImageResource("/res/image_2.jpg");
 	}
 	
 	public void update() {
