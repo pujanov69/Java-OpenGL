@@ -3,6 +3,7 @@ package org.engine;
 import org.graphics.Renderer;
 import org.test.TestPlayer;
 import org.world.World;
+import org.world.tiles.GrassTile;
 
 /**
 *@author Pujan
@@ -16,6 +17,16 @@ public class Main {
 		GameLoop.start();
 		
 		//Test code
+		
+		for(int x=0;x<10;x++) {
+			for(int y=0;y<10;y++) {
+				GrassTile tile = new GrassTile();
+				tile.x = tile.width * x;
+				tile.y = tile.height * y;
+				World.addTile(tile);
+			}
+		}
+		World.addTile(new GrassTile());
 		World.addObject(new TestPlayer());
 	}
 
