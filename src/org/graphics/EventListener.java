@@ -1,6 +1,7 @@
 package org.graphics;
 
 import org.resource.ImageResource;
+import org.world.World;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
@@ -16,19 +17,14 @@ public class EventListener implements GLEventListener{
 	public static GL2 gl = null;
 	public static ImageResource image = null;
 	
-	public static float x = -5;
 	
 	@Override
 	public void display(GLAutoDrawable drawable) {
 		gl = drawable.getGL().getGL2();  
 		
 		gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
-		
-//		Graphics.setColor(0, 1, 0, 1);
-//		Graphics.fillRect(0, 0, 1, 1);
-		
-		Graphics.drawImage(image, x, 0, 1, 1);
-		x+=0.01f; 
+
+		World.render();
 	}
 
 	@Override
