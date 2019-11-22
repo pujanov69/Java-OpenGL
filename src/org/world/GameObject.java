@@ -13,7 +13,7 @@ public class GameObject {
 	
 	//size of the object
 	public float width = 1;
-	public float height = 1;
+	public float height = 1 ;
 	
 	//rotation 
 	public float rotation = 0;

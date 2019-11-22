@@ -15,7 +15,6 @@ public class TestPlayer extends GameObject {
 	}
 	
 	public void render() {
-		System.out.println("Render");
 		Graphics.fillRect(x, y, width, height);
 	}
 }
