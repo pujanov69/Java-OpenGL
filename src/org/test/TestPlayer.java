@@ -3,6 +3,7 @@ package org.test;
 
 import org.engine.GameLoop;
 import org.graphics.Animation;
+import org.graphics.Renderer;
 import org.input.KeyInput;
 import org.input.MouseInput;
 import org.resource.ImageResource;
@@ -48,7 +49,10 @@ public class TestPlayer extends GameObject {
 		x += xInput * runSpeed * GameLoop.updateDelta();
 		y += yInput * runSpeed * GameLoop.updateDelta();
 		
-		rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX()-x, MouseInput.getWorldY()-y));	
+		rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX()-x, MouseInput.getWorldY()-y));
+		
+		Renderer.cameraX = x;
+		Renderer.cameraY = y;
 	}
 	
 }

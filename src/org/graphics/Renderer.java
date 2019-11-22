@@ -21,6 +21,7 @@ public class Renderer {
 	public static int screenHeight = 360;
 	
 	public static float unitsWide = 10;
+	public static float unitsTall = 0;
 	
 	public static float cameraX = 0;
 	public static float cameraY = 0;

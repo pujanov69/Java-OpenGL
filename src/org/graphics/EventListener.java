@@ -55,9 +55,9 @@ public class EventListener implements GLEventListener{
 		gl.glMatrixMode(GL2.GL_PROJECTION);
 		gl.glLoadIdentity();
 		
-		float unitsTall = Renderer.getWindowHeight() / (Renderer.getWindowWidth()/Renderer.unitsWide);
+		Renderer.unitsTall = Renderer.getWindowHeight() / (Renderer.getWindowWidth()/Renderer.unitsWide);
 		
-		gl.glOrtho(- Renderer.unitsWide/2, Renderer.unitsWide/2, -unitsTall/2, unitsTall/2 , -1, 1);
+		gl.glOrtho(- Renderer.unitsWide/2, Renderer.unitsWide/2, -Renderer.unitsTall/2, Renderer.unitsTall/2 , -1, 1);
 		gl.glMatrixMode(GL2.GL_MODELVIEW);
 	}
 
