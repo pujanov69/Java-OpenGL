@@ -21,6 +21,9 @@ public class GameObject {
 	//rotation 
 	public float rotation = 0;
 	
+	//Rotation offset of the renderer
+	public float graphicsRotation = 0;
+	
 	//animations
 	public Animation[] animations;
 	public int currentAnimation = 0;
@@ -31,7 +34,7 @@ public class GameObject {
 	
 	public void render() {
 		animations[currentAnimation].play();
-		Graphics.setRotation(rotation);
+		Graphics.setRotation(rotation + graphicsRotation);
 		Graphics.drawImage(animations[currentAnimation].getImage(), x, y, width, height);
 		Graphics.setRotation(0);
 	}
