@@ -8,6 +8,7 @@ import org.input.KeyInput;
 import org.input.MouseInput;
 import org.resource.ImageResource;
 import org.world.GameObject;
+import org.world.World;
 
 import com.jogamp.newt.event.KeyEvent;
 
@@ -19,6 +20,9 @@ import com.jogamp.newt.event.KeyEvent;
 public class TestPlayer extends GameObject {
 
 	public float runSpeed = 2.0f;
+	
+	//The legs
+	private GameObject legs = null;
 	
 	public TestPlayer() {
 		animations = new Animation[2];
@@ -39,6 +43,29 @@ public class TestPlayer extends GameObject {
 		for(int i = 0; i<animations[1].frames.length; i++) {
 			animations[1].frames[i] = new ImageResource("/res/rifle/move/survivor-move_rifle_" + String.valueOf(i) + ".png");
 		}
+		
+		//Create the legs object
+		legs = new GameObject();
+		
+		legs.x = x;
+		legs.y = y;
+		legs.width = width * 0.8f;
+		legs.height = height * 0.8f;
+		World.addObject(legs);
+		
+		legs.animations = new Animation[2];
+		legs.animations[0] = new Animation();
+		legs.animations[0].frames = new ImageResource[1];
+		legs.animations[0].frames[0] = new ImageResource("/res/feet/idle/survivor-idle_0.png");
+		
+		legs.animations[1] = new Animation();
+		legs.animations[1].frames = new ImageResource[20];
+		
+		for(int i= 0; i< animations[1].frames.length; i++) {
+			legs.animations[1].frames[i] = new ImageResource("/res/feet/run/survivor-run_" + String.valueOf(i) + ".png");
+		}
+		
+		legs.animations[1].fps = 50;
 	}
 	
 	public void update() {
@@ -61,14 +88,19 @@ public class TestPlayer extends GameObject {
 		
 		if(xInput != 0 || yInput != 0) {
 			currentAnimation = 1;
+			legs.currentAnimation = 1;
 		}else {
 			currentAnimation = 0;
+			legs.currentAnimation = 0;
 		}
 		
 		x += xInput * runSpeed * GameLoop.updateDelta();
 		y += yInput * runSpeed * GameLoop.updateDelta();
 		
 		rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX()-x, MouseInput.getWorldY()-y));
+		
+		legs.x = x;
+		legs.y = y;
 		
 		Renderer.cameraX = x;
 		Renderer.cameraY = y;

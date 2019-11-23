@@ -13,7 +13,7 @@ public class World {
 	private static ConcurrentLinkedQueue<Tile> tiles = new ConcurrentLinkedQueue<Tile>();
 	
 	
-	private static ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+	private static ConcurrentLinkedQueue<GameObject> gameObjects = new ConcurrentLinkedQueue<GameObject>();
 
 	public static void update() {
 		//Go through all objects and update them
@@ -35,7 +35,7 @@ public class World {
 	}
 	
 	public static void addObject(GameObject go) {
-		gameObjects.add(go);
+		gameObjects.offer(go);
 	}
 	
 	public static void addTile(Tile tile) {

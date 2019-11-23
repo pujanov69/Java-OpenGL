@@ -33,6 +33,9 @@ public class GameObject {
 	}
 	
 	public void render() {
+		if(animations == null || animations[currentAnimation] == null) {
+				return;
+		}
 		animations[currentAnimation].play();
 		Graphics.setRotation(rotation + graphicsRotation);
 		Graphics.drawImage(animations[currentAnimation].getImage(), x, y, width, height);
